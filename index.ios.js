@@ -1,42 +1,52 @@
 import React,{ Component } from 'react'
-import {AppRegistry,StyleSheet,Text,View} from 'react-native'
+import {
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    TextInput,
+} from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    padding:20,
+    backgroundColor: '#fff',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  input:{
+      height: 40,
+      borderWidth:1,
+      borderColor:"#ccc",
+      padding:5,
+      marginBottom:5,
+      marginTop:20
+  }
 })
 
+
+class Edit extends Component {
+    state={text:"请输入点什么..."} //初始化state
+    render() {
+        return (
+            <View>
+                <TextInput
+                    style={styles.input}
+                    onChangeText={(text) => this.setState({text})}
+                    value={this.state.text}
+                />
+                <Text style={{color:"rgb(38,124,252)"}}>{this.state.text}</Text>
+            </View>
+        )
+    }
+}
 
 export default class RnDemo extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-         hello world
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Edit />
       </View>
-    );
+    )
   }
 }
 
