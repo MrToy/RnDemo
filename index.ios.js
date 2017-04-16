@@ -5,6 +5,8 @@ import {
     Text,
     View,
     TextInput,
+    Button,
+    Linking
 } from 'react-native'
 
 const styles = StyleSheet.create({
@@ -39,6 +41,7 @@ class Edit extends Component {
         )
     }
 }
+
 
 export default class RnDemo extends Component {
   render() {

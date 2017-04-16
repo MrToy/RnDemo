@@ -6,3 +6,5 @@
 * [数据管理与传递](data.md)
 * [生命周期](life.md)
 * [网络请求](net.md)
+* [权限管理](auth.md)
+* [常用组件](often.md)
