@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>组件化开发 · GitBook</title>
+        <title>数据管理与传递 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="style.html" />
+    <link rel="next" href="life.html" />
     
     
-    <link rel="prev" href="start.html" />
+    <link rel="prev" href="style.html" />
     
 
     </head>
@@ -128,7 +128,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="component.html">
+        <li class="chapter " data-level="1.4" data-path="component.html">
             
                 <a href="component.html">
             
@@ -154,7 +154,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="data.html">
+        <li class="chapter active" data-level="1.6" data-path="data.html">
             
                 <a href="data.html">
             
@@ -249,7 +249,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >组件化开发</a>
+        <a href="." >数据管理与传递</a>
     </h1>
 </div>
 
@@ -264,49 +264,64 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;">&#x7EC4;&#x4EF6;&#x5316;&#x5F00;&#x53D1;</h1>
+                                <h1 id="&#x6570;&#x636E;&#x4F20;&#x9012;">&#x6570;&#x636E;&#x4F20;&#x9012;</h1>
+<h3 id="&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x6570;&#x636E;">&#x5F53;&#x524D;&#x7EC4;&#x4EF6;&#x6570;&#x636E;</h3>
 <blockquote>
-<p>React Native&#x4F7F;&#x7528;&#x4E86;React es2015&#x98CE;&#x683C;&#x7684;jsx&#x8BED;&#x6CD5;&#x8FDB;&#x884C;&#x7EC4;&#x4EF6;&#x5F0F;&#x5F00;&#x53D1;<br><strong>&#x7EC4;&#x4EF6;&#x540D;&#x5FC5;&#x987B;&#x5927;&#x5199;</strong></p>
+<p>&#x4F7F;&#x7528;state&#x8FDB;&#x884C;&#x7BA1;&#x7406;</p>
 </blockquote>
-<ul>
-<li>&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x5F0F;&#x98CE;&#x683C;&#x5F00;&#x53D1;</li>
-</ul>
 <pre><code class="lang-jsx"><span class="hljs-keyword">import</span> React,{ Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
-<span class="hljs-keyword">import</span> {Text} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-native&apos;</span>
+<span class="hljs-keyword">import</span> {View,TextInput,Text} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-native&apos;</span>
 
-<span class="hljs-keyword">const</span> Child = ()=&gt;(
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>hello world<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
-)
-</code></pre>
-<ul>
-<li>&#x4F7F;&#x7528;class&#x98CE;&#x683C;&#x5F00;&#x53D1;</li>
-</ul>
+<span class="hljs-comment">//&#x4F7F;&#x7528;this.state&#x83B7;&#x53D6;state&#x7684;&#x5185;&#x5BB9;</span>
+<span class="hljs-comment">//&#x4F7F;&#x7528;this.setState()&#x6539;&#x53D8;state&#x7684;&#x5185;&#x5BB9;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Edit</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    state={text:<span class="hljs-string">&quot;&#x8BF7;&#x8F93;&#x5165;&#x70B9;&#x4EC0;&#x4E48;...&quot;</span>}  <span class="hljs-comment">//&#x521D;&#x59CB;&#x5316;state</span>
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">TextInput</span>
+                    <span class="hljs-attr">style</span>=<span class="hljs-string">{{height:</span> <span class="hljs-attr">40</span>, <span class="hljs-attr">borderBottomWidth:1</span>, <span class="hljs-attr">borderBottomColor:</span> &apos;<span class="hljs-attr">gray</span>&apos;}}
+                    <span class="hljs-attr">onChangeText</span>=<span class="hljs-string">{(text)</span> =&gt;</span> this.setState({text})}
+                    value={this.state.text}
+                /&gt;
+                <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>{this.state.text}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
+        )
+    }
+}
+</span></code></pre>
+<h3 id="&#x7236;&#x5B50;&#x7EC4;&#x4EF6;&#x6570;&#x636E;&#x4F20;&#x9012;">&#x7236;&#x5B50;&#x7EC4;&#x4EF6;&#x6570;&#x636E;&#x4F20;&#x9012;</h3>
 <blockquote>
-<p>&#x4F7F;&#x7528; import &#x5173;&#x952E;&#x5B57;&#x5F15;&#x5165;&#x7EC4;&#x4EF6;<br>&#x4F7F;&#x7528; export &#x5173;&#x952E;&#x5B57;&#x5F15;&#x51FA;&#x7EC4;&#x4EF6;  </p>
+<p>&#x4F7F;&#x7528;props&#x8FDB;&#x884C;&#x7BA1;&#x7406;</p>
 </blockquote>
 <pre><code class="lang-jsx"><span class="hljs-keyword">import</span> React,{ Component } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
 <span class="hljs-keyword">import</span> {View,Text} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-native&apos;</span>
 
 <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x5B50;&#x7EC4;&#x4EF6;</span>
+<span class="hljs-comment">//&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;this.props&#x83B7;&#x53D6;&#x6570;&#x636E;</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Child</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
   render() {
     <span class="hljs-keyword">return</span> (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>hello world<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>{this.props.text}<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span>
     )
   }
 }
 
-<span class="hljs-comment">//&#x7236;&#x7EC4;&#x4EF6;&#x5F15;&#x7528;&#x5B50;&#x7EC4;&#x4EF6;</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span></span>{
+
+<span class="hljs-comment">//&#x7236;&#x7EC4;&#x4EF6;&#x91CC;&#x5F15;&#x7528;&#x5B50;&#x7EC4;&#x4EF6;</span>
+<span class="hljs-comment">//&#x7236;&#x7EC4;&#x4EF6;&#x5728;&#x6807;&#x7B7E;&#x4E0A;&#x5B9A;&#x4E49;props&#x6570;&#x636E;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span></span>{
     render() {
       <span class="hljs-keyword">return</span> (
-        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{width:</span> <span class="hljs-attr">100</span>, <span class="hljs-attr">height:</span> <span class="hljs-attr">100</span>}}&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">Child</span> /&gt;</span>
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Child</span> <span class="hljs-attr">text</span>=<span class="hljs-string">&quot;hello world&quot;</span> /&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span>
       )
     }
 }
 </span></code></pre>
+<h3 id="&#x8DE8;&#x7EC4;&#x4EF6;&#x6570;&#x636E;&#x4F20;&#x9012;">&#x8DE8;&#x7EC4;&#x4EF6;&#x6570;&#x636E;&#x4F20;&#x9012;</h3>
+<p>&#x4F7F;&#x7528; <a href="http://redux.js.org/" target="_blank">redux</a> &#x6216; <a href="https://mobx.js.org/" target="_blank">mobx</a> &#x7B49;&#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x7BA1;&#x7406;</p>
 
                                 
                                 </section>
@@ -334,12 +349,12 @@
 
             
                 
-                <a href="start.html" class="navigation navigation-prev " aria-label="Previous page: 如何开始">
+                <a href="style.html" class="navigation navigation-prev " aria-label="Previous page: 样式与布局">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="style.html" class="navigation navigation-next " aria-label="Next page: 样式与布局">
+                <a href="life.html" class="navigation navigation-next " aria-label="Next page: 生命周期">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -350,7 +365,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"组件化开发","level":"1.4","depth":1,"next":{"title":"样式与布局","level":"1.5","depth":1,"path":"style.md","ref":"style.md","articles":[]},"previous":{"title":"如何开始","level":"1.3","depth":1,"path":"start.md","ref":"start.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"component.md","mtime":"2017-04-16T12:29:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-16T18:04:48.331Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据管理与传递","level":"1.6","depth":1,"next":{"title":"生命周期","level":"1.7","depth":1,"path":"life.md","ref":"life.md","articles":[]},"previous":{"title":"样式与布局","level":"1.5","depth":1,"path":"style.md","ref":"style.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"data.md","mtime":"2017-04-16T12:58:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-16T18:10:33.129Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
