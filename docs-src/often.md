@@ -82,7 +82,3 @@ class Demo extends Component {
 ## 视频组件
 
 [react-native-video](https://github.com/react-native-community/react-native-video) (第三方)
-
-## 第三方组件库
-
-[jscoach](https://js.coach/react-native) 搜索你想要的组件

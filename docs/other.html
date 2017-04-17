@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>数据持久化 · GitBook</title>
+        <title>第三方组件 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="often.html" />
     
-    
-    <link rel="prev" href="auth.html" />
+    <link rel="prev" href="often.html" />
     
 
     </head>
@@ -206,7 +204,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.10" data-path="saver.html">
+        <li class="chapter " data-level="1.10" data-path="saver.html">
             
                 <a href="saver.html">
             
@@ -232,7 +230,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12" data-path="other.html">
+        <li class="chapter active" data-level="1.12" data-path="other.html">
             
                 <a href="other.html">
             
@@ -275,7 +273,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >数据持久化</a>
+        <a href="." >第三方组件</a>
     </h1>
 </div>
 
@@ -290,28 +288,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6570;&#x636E;&#x6301;&#x4E45;&#x5316;&#x50A8;&#x5B58;">&#x6570;&#x636E;&#x6301;&#x4E45;&#x5316;&#x50A8;&#x5B58;</h1>
-<blockquote>
-<p><a href="https://facebook.github.io/react-native/docs/asyncstorage.html" target="_blank">AsyncStorage</a> &#x7528;&#x4E8E;&#x6301;&#x4E45;&#x5316;&#x50A8;&#x5B58;</p>
-</blockquote>
-<pre><code class="lang-jsx"><span class="hljs-keyword">import</span> React,{Component} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
-<span class="hljs-keyword">import</span> {AsyncStorage,Button} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-native&apos;</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-    <span class="hljs-keyword">async</span> onPress(){
-        <span class="hljs-keyword">await</span> AsyncStorage.setItem(<span class="hljs-string">&apos;my-key&apos;</span>, <span class="hljs-string">&apos;my-value&apos;</span>)
-        <span class="hljs-keyword">const</span> value = <span class="hljs-keyword">await</span> AsyncStorage.getItem(<span class="hljs-string">&apos;my-key&apos;</span>)
-    }
-    render() {
-        <span class="hljs-keyword">return</span> (
-            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;click me&quot;</span>
-                <span class="hljs-attr">onPress</span>=<span class="hljs-string">{::this.onPress}</span> /&gt;</span>
-        )
-    }
-}
+                                <h1 id="&#x7B2C;&#x4E09;&#x65B9;&#x7EC4;&#x4EF6;">&#x7B2C;&#x4E09;&#x65B9;&#x7EC4;&#x4EF6;</h1>
+<h2 id="&#x5E38;&#x7528;&#x7EC4;&#x4EF6;&#x5E93;">&#x5E38;&#x7528;&#x7EC4;&#x4EF6;&#x5E93;</h2>
+<p><a href="https://js.coach/react-native" target="_blank">jscoach</a> &#x641C;&#x7D22;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x7EC4;&#x4EF6;</p>
+<h2 id="&#x5F15;&#x5165;&#x65B9;&#x5F0F;">&#x5F15;&#x5165;&#x65B9;&#x5F0F;</h2>
+<h3 id="step1">Step1</h3>
+<p>&#x5728;<a href="https://www.npmjs.com" target="_blank">npm</a>&#x4E0A;&#x4E0B;&#x8F7D;&#x4F60;&#x6240;&#x9700;&#x8981;&#x7684;&#x7EC4;&#x4EF6;</p>
+<pre><code>npm install your-components --save
+</code></pre><h3 id="step2">Step2</h3>
+<p>&#x624B;&#x52A8;&#x6216;&#x81EA;&#x52A8;link&#x5230;&#x4F60;&#x7684;&#x9879;&#x76EE;</p>
+<ul>
+<li><p>&#x81EA;&#x52A8;&#x65B9;&#x5F0F;</p>
+<pre><code>  react-native link  your-components
+</code></pre></li>
+<li><p>&#x624B;&#x52A8;&#x65B9;&#x5F0F;</p>
+<p>  <a href="https://facebook.github.io/react-native/docs/linking-libraries-ios.html#manual-linking" target="_blank">ios</a></p>
+<p>  <a href="https://www.npmjs.com/package/react-native-fs#usage-android" target="_blank">android</a></p>
+</li>
+</ul>
+<h3 id="step3">Step3</h3>
+<p>&#x5728;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x91CC;&#x5F15;&#x5165;&#x5E76;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-jsx"><span class="hljs-keyword">import</span> {SomeComponent} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;your-components&apos;</span>
+<span class="hljs-keyword">const</span> Demo = ()=&gt;(
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SomeComponent</span> /&gt;</span>
+)
 </span></code></pre>
-<p>AsyncStorage &#x53EF;&#x4EE5;&#x50A8;&#x5B58;key-value&#x7C7B;&#x578B;&#x952E;&#x503C;&#x5BF9;&#x6570;&#x636E;</p>
-<p>AsyncStorage &#x57FA;&#x4E8E; RocksDB &#x6216; SQLite &#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x7684;&#x7CFB;&#x7EDF;&#x652F;&#x6301;&#x4EC0;&#x4E48;</p>
-<p>AsyncStorage &#x662F;&#x5F02;&#x6B65;&#x50A8;&#x5B58;&#x548C;&#x8BFB;&#x53D6;&#xFF0C;&#x4F20;&#x5165;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6216;&#x4F7F;&#x7528;&#x8FD4;&#x56DE;&#x7684;Promise</p>
 
                                 
                                 </section>
@@ -339,14 +340,10 @@
 
             
                 
-                <a href="auth.html" class="navigation navigation-prev " aria-label="Previous page: 权限管理">
+                <a href="often.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 常用组件">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="often.html" class="navigation navigation-next " aria-label="Next page: 常用组件">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -355,7 +352,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数据持久化","level":"1.10","depth":1,"next":{"title":"常用组件","level":"1.11","depth":1,"path":"often.md","ref":"often.md","articles":[]},"previous":{"title":"权限管理","level":"1.9","depth":1,"path":"auth.md","ref":"auth.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"saver.md","mtime":"2017-04-17T05:07:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-17T05:36:28.266Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第三方组件","level":"1.12","depth":1,"previous":{"title":"常用组件","level":"1.11","depth":1,"path":"often.md","ref":"often.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"other.md","mtime":"2017-04-17T05:36:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-17T05:36:28.266Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
