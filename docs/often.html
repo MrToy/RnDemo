@@ -58,7 +58,7 @@
 
     
     
-    <link rel="prev" href="auth.html" />
+    <link rel="prev" href="saver.html" />
     
 
     </head>
@@ -204,7 +204,20 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.10" data-path="often.html">
+        <li class="chapter " data-level="1.10" data-path="saver.html">
+            
+                <a href="saver.html">
+            
+                    
+                    数据持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11" data-path="often.html">
             
                 <a href="often.html">
             
@@ -289,6 +302,45 @@
 <h2 id="linking-&#x51FD;&#x6570;">Linking &#x51FD;&#x6570;</h2>
 <p><a href="https://facebook.github.io/react-native/docs/linking.html" target="_blank">Linking</a>&#x7528;&#x4E8E;&#x6253;&#x5F00;&#x4E00;&#x4E2A;url</p>
 <p>&#x53EF;&#x4EE5;&#x662F;&#x56FE;&#x7247;&#xFF0C;gps, &#x7F51;&#x9875; ...</p>
+<h2 id="animated-&#x7EC4;&#x4EF6;">Animated &#x7EC4;&#x4EF6;</h2>
+<p>Animated(<a href="https://facebook.github.io/react-native/docs/animated.html" target="_blank">https://facebook.github.io/react-native/docs/animated.html</a>) &#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;react-native&#x52A8;&#x753B;&#x7684;&#x5B9E;&#x73B0;</p>
+<p>&#x652F;&#x6301;&#x7684;&#x53D8;&#x91CF;&#x7C7B;&#x578B;</p>
+<ul>
+<li>Animated.Value() &#x6570;&#x5B57;&#x7C7B;&#x578B;&#x53D8;&#x91CF;</li>
+<li>Animated.ValueXY() &#x5411;&#x91CF;&#x7C7B;&#x578B;&#x53D8;&#x91CF;</li>
+</ul>
+<p>&#x652F;&#x6301;&#x7684;&#x7EC4;&#x4EF6;&#x7C7B;&#x578B;</p>
+<ul>
+<li>Animated.Image</li>
+<li>Animated.ScrollView</li>
+<li>Animated.Text</li>
+<li>Animated.View</li>
+</ul>
+<pre><code class="lang-jsx"><span class="hljs-comment">//&#x4F7F;&#x7528;Animated&#x4F7F;&#x4E00;&#x4E2A;View&#x6E10;&#x53D8;&#x51FA;&#x73B0;</span>
+<span class="hljs-keyword">import</span> React,{Component} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
+<span class="hljs-keyword">import</span> {Animated,Text} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-native&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    state={
+        fade:<span class="hljs-keyword">new</span> Animated.Value(<span class="hljs-number">0</span>)
+    }
+    componentDidMount(){
+        <span class="hljs-comment">//&#x5B9A;&#x4E49;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5F00;&#x59CB;&#x52A8;&#x753B;</span>
+        Animated.timing(
+            <span class="hljs-keyword">this</span>.state.fade,
+            {toValue:<span class="hljs-number">1</span>}
+        ).start({
+            duration:<span class="hljs-number">1000</span> <span class="hljs-comment">//&#x6301;&#x7EED;1000ms&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;500ms</span>
+        })
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Animated.View</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>hello world<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Animated.View</span>&gt;</span>
+        )
+    }
+}
+</span></code></pre>
 <h2 id="&#x5176;&#x5B83;&#x6807;&#x51C6;&#x7EC4;&#x4EF6;">&#x5176;&#x5B83;&#x6807;&#x51C6;&#x7EC4;&#x4EF6;</h2>
 <p><a href="https://facebook.github.io/react-native/docs" target="_blank">&#x5B98;&#x7F51;&#x53BB;&#x627E;</a></p>
 <h2 id="&#x89C6;&#x9891;&#x7EC4;&#x4EF6;">&#x89C6;&#x9891;&#x7EC4;&#x4EF6;</h2>
@@ -322,7 +374,7 @@
 
             
                 
-                <a href="auth.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 权限管理">
+                <a href="saver.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 数据持久化">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -334,7 +386,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"常用组件","level":"1.10","depth":1,"previous":{"title":"权限管理","level":"1.9","depth":1,"path":"auth.md","ref":"auth.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"often.md","mtime":"2017-04-16T17:58:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-16T18:10:33.129Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"常用组件","level":"1.11","depth":1,"previous":{"title":"数据持久化","level":"1.10","depth":1,"path":"saver.md","ref":"saver.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"often.md","mtime":"2017-04-17T05:03:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-17T05:08:29.238Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

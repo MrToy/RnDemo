@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>网络请求 · GitBook</title>
+        <title>数据持久化 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="auth.html" />
+    <link rel="next" href="often.html" />
     
     
-    <link rel="prev" href="life.html" />
+    <link rel="prev" href="auth.html" />
     
 
     </head>
@@ -180,7 +180,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.8" data-path="net.html">
+        <li class="chapter " data-level="1.8" data-path="net.html">
             
                 <a href="net.html">
             
@@ -206,7 +206,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="saver.html">
+        <li class="chapter active" data-level="1.10" data-path="saver.html">
             
                 <a href="saver.html">
             
@@ -262,7 +262,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >网络请求</a>
+        <a href="." >数据持久化</a>
     </h1>
 </div>
 
@@ -277,31 +277,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;">&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;</h1>
-<p>react-native &#x5B9E;&#x73B0;&#x4E86;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">fetch</a>&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;</p>
+                                <h1 id="&#x6570;&#x636E;&#x6301;&#x4E45;&#x5316;&#x50A8;&#x5B58;">&#x6570;&#x636E;&#x6301;&#x4E45;&#x5316;&#x50A8;&#x5B58;</h1>
 <blockquote>
-<p>fetch &#x51FD;&#x6570;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x6807;&#x51C6;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6CD5;&#x5B8C;&#x5168;&#x4E00;&#x81F4;</p>
+<p><a href="https://facebook.github.io/react-native/docs/asyncstorage.html" target="_blank">AsyncStorage</a> &#x7528;&#x4E8E;&#x6301;&#x4E45;&#x5316;&#x50A8;&#x5B58;</p>
 </blockquote>
-<h4 id="get&#x8BF7;&#x6C42;">get&#x8BF7;&#x6C42;</h4>
-<pre><code class="lang-js">fetch(<span class="hljs-string">&quot;/your/api&quot;</span>)
-    .then(res=&gt;res.json())
-    .then(data=&gt;{
-        <span class="hljs-built_in">console</span>.log(data)
-    })
-</code></pre>
-<h4 id="post&#x8BF7;&#x6C42;">post&#x8BF7;&#x6C42;</h4>
-<pre><code class="lang-js">fetch(<span class="hljs-string">&quot;/your/api&quot;</span>,{
-    headers:{
-        <span class="hljs-string">&apos;Content-Type&apos;</span>: <span class="hljs-string">&apos;application/json&apos;</span>
-    },
-    method: <span class="hljs-string">&quot;POST&quot;</span>,
-    body:<span class="hljs-built_in">JSON</span>.stringify({a: <span class="hljs-number">1</span>, b: <span class="hljs-number">2</span>})
-})
-    .then(res=&gt;res.json())
-    .then(data=&gt;{
-        <span class="hljs-built_in">console</span>.log(data)
-    })
-</code></pre>
+<pre><code class="lang-jsx"><span class="hljs-keyword">import</span> React,{Component} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react&apos;</span>
+<span class="hljs-keyword">import</span> {AsyncStorage,Button} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;react-native&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">async</span> onPress(){
+        <span class="hljs-keyword">await</span> AsyncStorage.setItem(<span class="hljs-string">&apos;my-key&apos;</span>, <span class="hljs-string">&apos;my-value&apos;</span>)
+        <span class="hljs-keyword">const</span> value = <span class="hljs-keyword">await</span> AsyncStorage.getItem(<span class="hljs-string">&apos;my-key&apos;</span>)
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;click me&quot;</span>
+                <span class="hljs-attr">onPress</span>=<span class="hljs-string">{::this.onPress}</span> /&gt;</span>
+        )
+    }
+}
+</span></code></pre>
+<p>AsyncStorage &#x53EF;&#x4EE5;&#x50A8;&#x5B58;key-value&#x7C7B;&#x578B;&#x952E;&#x503C;&#x5BF9;&#x6570;&#x636E;</p>
+<p>AsyncStorage &#x57FA;&#x4E8E; RocksDB &#x6216; SQLite &#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x7684;&#x7CFB;&#x7EDF;&#x652F;&#x6301;&#x4EC0;&#x4E48;</p>
+<p>AsyncStorage &#x662F;&#x5F02;&#x6B65;&#x50A8;&#x5B58;&#x548C;&#x8BFB;&#x53D6;&#xFF0C;&#x4F20;&#x5165;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6216;&#x4F7F;&#x7528;&#x8FD4;&#x56DE;&#x7684;Promise</p>
 
                                 
                                 </section>
@@ -329,12 +326,12 @@
 
             
                 
-                <a href="life.html" class="navigation navigation-prev " aria-label="Previous page: 生命周期">
+                <a href="auth.html" class="navigation navigation-prev " aria-label="Previous page: 权限管理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="auth.html" class="navigation navigation-next " aria-label="Next page: 权限管理">
+                <a href="often.html" class="navigation navigation-next " aria-label="Next page: 常用组件">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -345,7 +342,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"网络请求","level":"1.8","depth":1,"next":{"title":"权限管理","level":"1.9","depth":1,"path":"auth.md","ref":"auth.md","articles":[]},"previous":{"title":"生命周期","level":"1.7","depth":1,"path":"life.md","ref":"life.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"net.md","mtime":"2017-04-16T13:29:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-17T05:08:29.238Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据持久化","level":"1.10","depth":1,"next":{"title":"常用组件","level":"1.11","depth":1,"path":"often.md","ref":"often.md","articles":[]},"previous":{"title":"权限管理","level":"1.9","depth":1,"path":"auth.md","ref":"auth.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"saver.md","mtime":"2017-04-17T05:07:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-17T05:08:29.238Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

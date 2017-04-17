@@ -33,6 +33,48 @@ class Demo extends Component {
 
 可以是图片，gps, 网页 ...
 
+## Animated 组件
+
+Animated(https://facebook.github.io/react-native/docs/animated.html) 组件可以用于react-native动画的实现
+
+支持的变量类型
+* Animated.Value() 数字类型变量
+* Animated.ValueXY() 向量类型变量
+
+支持的组件类型
+* Animated.Image
+* Animated.ScrollView
+* Animated.Text
+* Animated.View
+
+```jsx
+//使用Animated使一个View渐变出现
+import React,{Component} from 'react'
+import {Animated,Text} from 'react-native'
+class Demo extends Component {
+    state={
+        fade:new Animated.Value(0)
+    }
+    componentDidMount(){
+        //定义什么时候开始动画
+        Animated.timing(
+            this.state.fade,
+            {toValue:1}
+        ).start({
+            duration:1000 //持续1000ms，默认值500ms
+        })
+    }
+    render() {
+        return (
+            <Animated.View>
+                <Text>hello world</Text>
+            </Animated.View>
+        )
+    }
+}
+```
+
+
 ## 其它标准组件
 
 [官网去找](https://facebook.github.io/react-native/docs)

@@ -6,7 +6,8 @@ import {
     View,
     TextInput,
     Button,
-    Linking
+    Linking,
+    Animated
 } from 'react-native'
 
 const styles = StyleSheet.create({
@@ -44,13 +45,24 @@ class Edit extends Component {
 
 
 export default class RnDemo extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Edit />
-      </View>
-    )
-  }
+    state={
+        fade:new Animated.Value(0)
+    }
+    componentDidMount(){
+        Animated.timing(
+            this.state.fade,
+            {toValue:1}
+        ).start()
+    }
+    render() {
+        return (
+            <View style={styles.container}>
+                <Animated.View style={{opacity:this.state.fade}}>
+                    <Edit />
+                </Animated.View>
+            </View>
+        )
+    }
 }
 
 

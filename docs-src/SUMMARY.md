@@ -7,4 +7,5 @@
 * [生命周期](life.md)
 * [网络请求](net.md)
 * [权限管理](auth.md)
+* [数据持久化](saver.md)
 * [常用组件](often.md)
