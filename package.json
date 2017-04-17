@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"test": "jest",
+		"build:doc":"gitbook build docs-src docs"
 	},
 	"dependencies": {
 		"react": "16.0.0-alpha.6",
