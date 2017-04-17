@@ -13,9 +13,9 @@
     * [jdk](http://www.oracle.com/technetwork/java/javase/downloads/index.html) >= 1.8
 
     > 使用Android Studio或直接下载SDK  
-    > 配置环境变量 **ANDROID_HOME = /path/to/your/sdk**
-    > jdk环境变量 **JAVA_HOME = /path/to/your/jdk**  
-    > 开发工具环境变量:  
+    > 配置环境变量:  
+    > **ANDROID_HOME = /path/to/your/sdk**  
+    > **JAVA_HOME = /path/to/your/jdk**  
     > **PATH = ${PATH} : ${ANDROID_HOME}/tools : ${ANDROID_HOME}/platform-tools**
 
 * ios
